@@ -13,4 +13,6 @@ int SequenceSearch(int *elem, int num, int n){
 int main(){
     int elem[5]={1,2,3,4,5};
     cout<<SequenceSearch(elem,3,5);
+
+    return 0;
 }
