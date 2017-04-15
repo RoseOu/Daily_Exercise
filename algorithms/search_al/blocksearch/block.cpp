@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 
-typedef int ElemType;
-
 typedef int KeyType;
+
+typedef struct{
+    KeyType key;
+} ElemType;
 
 typedef struct{
     ElemType *elem;
@@ -48,12 +50,12 @@ int Search_Idx(SSTable ST, indexTable ID, KeyType kval){
     }else{
         t=ST.length;     //s和t为在ST表进行查找的下界和上界
     }
-    if(ST.elem[t]==kval){
+    if(ST.elem[t].key==kval){
         return t;
     }else{          //在ST.elem[s]至ST.elem[t-1]的区间内进行顺序查找
         ST.elem[0]=ST.elem[t];   //ST.elem[0]用来暂存ST.elem[t]
-        ST.elem[t]=kval;        //设置哨兵
-        for(k=s;ST.elem[k]!=kval;k++);
+        ST.elem[t].key=kval;        //设置哨兵
+        for(k=s;ST.elem[k].key!=kval;k++);
         ST.elem[t]=ST.elem[0];   //回复暂存值
         if(k!=t){
             return k;
@@ -64,12 +66,12 @@ int Search_Idx(SSTable ST, indexTable ID, KeyType kval){
 }
 
 int main(){
-    ElemType arr[21]={0,17,8,21,19,31,33,22,25,42,37,40,52,61,78,73,55,94,88,79,85};
+    int arr[21]={0,17,8,21,19,31,33,22,25,42,37,40,52,61,78,73,55,94,88,79,85};
     SSTable ST;
     ST.elem=new ElemType [21];
     ST.length=20;
     for(int i=0;i<21;i++){
-        ST.elem[i]=arr[i];
+        ST.elem[i].key=arr[i];
     }
 
     KeyType keyarr[5]={21,33,52,78,94};
@@ -84,11 +86,9 @@ int main(){
         ID.elem[i]=it;
     }
 
-    int result,kval=31;
+    int result,kval=85;
     result=Search_Idx(ST,ID,kval);
     cout<<result;
 
     return 0;
 }
-
-
