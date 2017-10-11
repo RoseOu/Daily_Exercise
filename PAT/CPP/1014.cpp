@@ -22,3 +22,76 @@ d&Hyscvnm
 输出样例：
 THU 14:04
 */
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <map>
+using namespace std;
+
+vector <string> decodeString(string str1,string str2,string str3,string str4){
+	int i,j,k,s;
+	stringstream ss;
+	string date;
+	string hour;
+	string second;
+	string str0;
+	vector <string> result;
+	map <char,string> datemap;
+	datemap['A']="MON"; datemap['B']="TUE"; datemap['C']="WED"; datemap['D']="THU";
+	datemap['E']="FRI"; datemap['F']="SAT"; datemap['G']="SUN";
+	map <char,string> hourmap;
+	hourmap['A']="10"; hourmap['B']="11"; hourmap['C']="12"; hourmap['D']="13"; hourmap['E']="14";
+	hourmap['F']="15"; hourmap['G']="16"; hourmap['H']="17"; hourmap['I']="18"; hourmap['J']="19";
+	hourmap['K']="20"; hourmap['L']="21"; hourmap['M']="22"; hourmap['N']="23";
+
+	for(i=0;i<min(str1.length(),str2.length());i++){
+		if(str1[i]==str2[i] && str1[i]>='A' && str1[i]<='G'){
+			date=datemap[str1[i]];
+			s=i;
+			break;
+		}
+	}
+	for(k=s+1;k<min(str1.length(),str2.length());k++){
+		if(str1[k]==str2[k]){
+			if(str1[k]>='0' && str1[k]<='9'){
+				ss<<str1[k];
+				ss>>str0;
+				hour="0"+str0;
+				break;
+			}else if(str1[k]>='A' && str1[k]<='N'){
+				hour=hourmap[str1[k]];
+				break;
+			}
+		}
+	}
+	for(j=0;j<min(str3.length(),str4.length());j++){
+		if (str3[j]==str4[j] && ((str3[j]>='A' && str3[j]<='Z') || (str3[j]>='a' && str3[j]<='z'))){
+			if(j<10){
+				ss<<j;
+				ss>>str0;
+				second="0"+str0;
+			}else{
+				ss<<j;
+				ss>>str0;
+				second=str0;
+			}
+			break;
+		}
+	}
+	result.push_back(date);
+	result.push_back(hour);
+	result.push_back(second);
+	return result;
+}
+
+int main(){
+	string str1,str2,str3,str4;
+	vector <string> result;
+	cin>>str1>>str2>>str3>>str4;
+	result=decodeString(str1,str2,str3,str4);
+	cout<<result[0]<<" "<<result[1]<<":"<<result[2];
+	return 0;
+}
+
+

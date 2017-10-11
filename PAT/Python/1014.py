@@ -24,4 +24,42 @@ THU 14:04
 '''
 
 def decodeString(str1,str2,str3,str4):
-   for  
+    date=""
+    hour=""
+    second=""
+    dateDict={"A":"MON", "B":"TUE", "C":"WED", "D":"THU", "E":"FRI", "F":"SAT", "G":"SUN"}
+    hourDict={"A":"10", "B":"11", "C":"12", "D":"13", "E":"14", "F":"15", "G":"16", "H":"17",
+              "I":"18", "J":"19", "K":"20", "L":"21", "M":"22", "N":"23"}
+    for i in range(0,min(len(str1),len(str2))):
+        if str1[i]==str2[i] and "A"<=str1[i]<="G":
+            date=dateDict[str1[i]]
+            s=i
+            break
+    for k in range(s+1,min(len(str1),len(str2))):
+        if str1[k]==str2[k]:
+            if "0"<=str1[k]<="9":
+                hour="0"+str1[k]
+                break
+            elif "A"<=str1[k]<="N":
+                hour=hourDict[str1[k]]
+                break
+    for j in range(0,min(len(str3),len(str4))):
+        if str3[j]==str4[j] and ("A"<=str3[j]<="Z" or "a"<=str3[j]<="z"):
+            if j<10:
+                second="0"+str(j)
+            else:
+                second=str(j)
+            break
+    return [date,hour,second]
+
+def main():
+    str1=input()
+    str2=input()
+    str3=input()
+    str4=input()
+    alist=decodeString(str1,str2,str3,str4)
+    print(alist[0]+" "+alist[1]+":"+alist[2])
+
+if __name__ == '__main__':
+    main()
+
