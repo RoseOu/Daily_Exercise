@@ -1,0 +1,12 @@
+ol.out {
+	list-style-type: upper-roman;
+}
+ol.mid {
+	list-style-type: upper-alpha;
+}
+ol.in {
+	list-style-type: decimal;
+}
+li.compact {
+	background-color: red;
+}

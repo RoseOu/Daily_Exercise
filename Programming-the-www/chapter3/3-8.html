@@ -1,0 +1,71 @@
+<!-- 
+3-8. 重写练习6中的文档，以内联样式表的形式来指定这些样式信息。
+-->
+<!-- 
+3-6. 创建一个HTML文档，其内容为关于汽车的嵌套有序列表。外部列表必须有三条记录，分别为compact、midsize和sports。这三个列表项目都各自对应有两个子列表，其内容为车体样式的列表。其中，compact和midsize类型的汽车子列表对应的是two door和four door；sports类型的汽车子列表对应的是coupe和convertible。每个子列表必须至少包含三条记录，记录内容为对应类别的某种汽车的制造商和型号。外部列表的序号必须是大写罗马数字，中间列表必须使用大写字母，内部列表必须使用阿拉伯数字。compact汽车列表的背景色必须为红色（red）。所有这些样式都必须在一个文档样式表中进行说明。最后对该文档进行测试。
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>3-6</title>
+ 	<meta charset="utf-8">
+ </head>
+ <body>
+ 	<ol style="list-style-type: upper-roman;">
+ 		<li style="background-color: red;">compact
+ 			<ol style="list-style-type: upper-alpha;">
+ 				<li>two door
+ 					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 				<li>four door
+ 					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 			</ol>
+ 		</li>
+ 		<li>midsize
+ 			<ol style="list-style-type: upper-alpha;">
+ 				<li>two door
+  					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 				<li>four door
+ 					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 			</ol>
+ 		</li>
+ 		<li>sports
+ 			<ol style="list-style-type: upper-alpha;">
+ 				<li>coupe
+  					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 				<li>convertible
+  					<ol style="list-style-type: decimal;">
+ 						<li>制造商</li>
+ 						<li>型号</li>
+ 						<li>型号</li>
+ 					</ol>
+ 				</li>
+ 			</ol>
+ 		</li>
+ 	</ol>
+ </body>
+ </html>

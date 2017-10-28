@@ -1,0 +1,60 @@
+<!-- 
+3-2. 创建一个HTML文档，其内容为一个表格，用于记录某个学院足球联赛的比赛比分。队名颜色与所在学院的主颜色一致。取胜一方的比分字体应该比失利一方的比分字体大，字体样式也应该有所区别。队名必须采用手写字体。最后对该文档进行测试。
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>3-2</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+			caption {
+				color: steelblue;
+			}
+			table,td,th {
+				border: thin solid black;
+				border-collapse:collapse;
+				padding: 15px;
+				margin: 15px;
+				text-align: center;
+			}
+			.steelblue{
+				color: dodgerblue;
+				font-family: cursive;
+			}
+			.royalblue{
+				color: royalblue;
+				font-family: cursive;
+			}
+			.win{
+				font-size: 1.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<caption> 计算机学院足球联赛比赛比分 </caption>
+			<tr>
+				<th>队名</th>
+				<th>胜负</th>
+				<th>得分</th>
+				<th rowspan="2">vs</th>
+				<th>得分</th>
+				<th>胜负</th>
+				<th>队名</th>
+			</tr>
+			<tr>
+				<td class="steelblue">啦啦啦</td>
+				<td class="win">胜利</td>
+				<td>3</td>
+				<td>2</td>
+				<td>失败</td>
+				<td class="royalblue">哈哈哈</td>
+			</tr>
+<!-- 			<tr>
+				<td>哈哈哈</td>
+				<td>失败</td>
+				<td>2</td>
+			</tr> -->
+		</table>
+	</body>
+</html>
