@@ -91,7 +91,6 @@ int main(){
 			}else if( (s.de < h) && (s.cai < h) && (s.de >= s.cai) ){
 				c.push_back(s);
 			}else {
-
 				d.push_back(s);
 			}			
 		}
